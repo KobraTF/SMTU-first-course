@@ -3,7 +3,7 @@ def main():
 #Символы, которые мы должны вывести    
     length=int(input())
 #Высота зиг-зага
-    flag1,flag2=True,True
+    flag1,flag2=True,False
 #Флаг1 - завершение кода, флаг2 - переключение счётчика    
     Len=len(val)
     counter=1
@@ -16,22 +16,24 @@ def main():
         modifier=(length-1)*2
 #Целочисленный делитель
         while flag1:
-            num=0
-            f=0
-            for _ in range(Len):
+            counter=1;flag2=False
+            for num in range(Len):
                 if counter==floor:
                     print(val[num],end='')
-                elif not flag2:
-                    print(' ',end='')
-                if counter==Len:
-                    flag2=False
-                elif counter==1:
+                elif flag2:
+                    print('.',end='')
+                if counter==length:
                     flag2=True
-                if flag2:
+                elif counter==1:
+                    flag2=False
+                if not flag2:
                     counter+=1
                 else:
                     counter-=1
-                num+=1
+                    if counter==1:
+                        flag2=False
+                
+            print()
             if floor<length:
                 floor+=1
             else:
