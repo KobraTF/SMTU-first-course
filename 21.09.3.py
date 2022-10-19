@@ -21,7 +21,7 @@ def main():
                 if counter==floor:
                     print(val[num],end='')
                 elif flag2:
-                    print('.',end='')
+                    print(' ',end='')
                 if counter==length:
                     flag2=True
                 elif counter==1:
