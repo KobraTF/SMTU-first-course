@@ -1,47 +1,26 @@
 def main():
     s=input()
-    flag=True
-    arr=[]
-    arr2=[]
-    opening='([{'
-    closing=')]}'
-
-    if flag:
-        x=0
-        o=''
-        f=True
-        right=''
-        while True:
-            if s=='':
-                break
-            elif s[x] in opening:
-                o+=closing[opening.find(s[x])]
-                f=True
-            elif o!='' and s[x]==o[-1]:
-                if f:
-                    right+=opening[closing.find(s[x])]+s[x]
-                else:
-                    right=opening[closing.find(s[x])]+right+s[x]
-                s=s[:x-1]+s[x+1:]
-                o=o[:len(o)-1]
-                f=False
-                x-=2
-            else:
-                arr.append(right)
-                arr2.append(len(right))
-                s=s[x+1:]
-                o=''
-                right=''
-                x=0
-                flag=False
-                continue
-            x+=1
-            if x==len(s):
-                break
-        if flag:
-            print(right)
+    chrlist=[]
+    indexlist=[]
+    opening='({['
+    closing=')}]'
+    for x in range(len(s)):
+        if s[x] in opening:
+            chrlist.append([x,closing[opening.find(s[x])]])
+        elif len(chrlist)!=0 and s[x] in closing:
+            if chrlist[-1][1]==s[x]:
+                indexlist.append([chrlist[-1][0],x])
+                chrlist.pop()
+                if len(indexlist)>1 and indexlist[-1][0]-1==indexlist[-2][1]:
+                    indexlist[-2][1]=indexlist[-1][1]
+                    indexlist.remove(indexlist[-1])
         else:
-            print(arr[arr2.index(max(arr2))])
+            chrlist=[]
+    mlist=[[x[1]-x[0],x] for x in indexlist]
+    m=max(mlist)
+    print(s[m[1][0]:m[1][1]+1])
+        #print(mlist, s[mlist[]])
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     main()
