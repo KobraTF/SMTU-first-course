@@ -7,11 +7,11 @@
   1. done
   2. done
   3. done
-## Third hw
-  1. not done yet
-  2. not done yet
-  3. funny solution, but need to rewrite because of some issues
-## Fourth hw
+## Third hw (done)
+  1. done
+  2. done
+  3. done(pls don't punish me, i've decided to have some fun)
+## Fourth hw (done)
   1. done
 ## Fifth hw (done)
   1. done
