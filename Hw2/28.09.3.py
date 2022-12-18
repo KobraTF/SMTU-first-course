@@ -18,8 +18,9 @@ def main():
             else:
                 chrlist=[]
     mlist=[[x[1]-x[0],x] for x in indexlist]
-    m=max(mlist)
-    print(s[m[1][0]:m[1][1]+1])
+    if len(mlist)!=0:
+        m=max(mlist)
+        print(s[m[1][0]:m[1][1]+1])
         #print(mlist, s[mlist[]])
 
 
