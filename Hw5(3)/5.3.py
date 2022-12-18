@@ -1,6 +1,6 @@
 from math import factorial,comb
 def main():
-    n,k=map(int,input().split(" "))
+    n,k=map(int,input().split(","))
     ## n-конфет по k-пакетам
     S=0
     for j in range(k+1):
