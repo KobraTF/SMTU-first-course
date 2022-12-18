@@ -10,9 +10,15 @@
 ## Third hw (done)
   1. done
   2. done
-  3. done(pls don't punish me, i've decided to have some fun)
+  3. done
+## Spiral (done)
 ## Fourth hw (done)
   1. done
-## Fifth hw (done)
+## Fifth hw (not done)
   1. done
   2. done
+  3. not done
+## Sixth hw (done)
+  1. done
+  2. done
+  3. done
