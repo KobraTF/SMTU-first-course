@@ -14,22 +14,16 @@ def FigureMoves(x:int,y:int)-> Generator[int, None, None]:
             yield i
 
 def PlaceFigure(x:int,y:int,Field:field)-> field:
-    TempField=copy.deepcopy(Field)
     for i in FigureMoves(x,y):
-    #    if TempField[i[1]][i[0]]==-1:
-    #        return Field
-        TempField[i[1]][i[0]]+=1
-    TempField[y][x]=-1
-    return TempField
+        Field[i[1]][i[0]]+=1
+    Field[y][x]=-1
+    return Field
 
 def RemoveFigure(x:int,y:int,Field:field)-> field:
-    TempField=copy.deepcopy(Field)
     for i in FigureMoves(x,y):
-        #if TempField[i[1]][i[0]]==-1:
-        #    return Field
-        TempField[i[1]][i[0]]-=1
-    TempField[y][x]=0
-    return TempField
+        Field[i[1]][i[0]]-=1
+    Field[y][x]=0
+    return Field
 
 def recursion(place:int,CurrentPos:int,Field:field,Figures:list=[])-> None:
     global Flag
