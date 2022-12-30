@@ -22,6 +22,8 @@ def main():
         m=max(mlist)
         print(s[m[1][0]:m[1][1]+1])
         #print(mlist, s[mlist[]])
+    else:
+        print('No Solutions')
 
 
 if __name__ == '__main__':
