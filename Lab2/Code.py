@@ -34,7 +34,7 @@ def RemoveFigure(x:int,y:int,Field:field)-> field:
     Field[y][x]=0
     return Field
 
-# Рекурентная функция, с точкой остановки "Все дополнительные фигуры поставлены"
+# Рекуррентная функция, с точкой остановки "Все дополнительные фигуры поставлены"
 def recursion(place:int,CurrentPos:int,Field:field,Figures:list=[])-> None:
 
     # Указываю на то что буду менять в этой функции значения глобальных переменных
@@ -84,7 +84,7 @@ def main():
         for _ in range(OnField):
             x,y=map(int,f.readline().split())
             Field=PlaceFigure(x,y,Field)
-    # Рекурентная магия(подробнее в самой функции рекурсии), запись всех возможных расстановок в файл
+    # Рекуррентная магия(подробнее в самой функции рекурсии), запись всех возможных расстановок в файл
     File=open("output.txt",'w')
     recursion(place,0,Field)
     File.close()
