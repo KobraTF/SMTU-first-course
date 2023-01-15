@@ -5,6 +5,6 @@ def main():
     S=0
     for j in range(k+1):
         S+=((-1)**(k+j))*comb(k,j)*(j**n)
-    print(int(S/factorial(k)))
+    print(S//factorial(k))
 if __name__ =='__main__':
     main()

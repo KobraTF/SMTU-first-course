@@ -28,8 +28,8 @@ def main():
             print("No solution")
     else:
         with open('output.txt','w') as f:
-            f.write("+".join(map(str,output)).replace("+-",'-'))
-            print("+".join(map(str,output)).replace("+-",'-'))
+            f.write(str("+".join(map(str,output)).replace("+-",'-')+'='+str(S)))
+            print("+".join(map(str,output)).replace("+-",'-'),'=',S,sep='')
 # Точка входа в программу
 if __name__=="__main__":
     main()
