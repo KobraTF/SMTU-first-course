@@ -46,7 +46,7 @@ def recursion(place:int,CurrentPos:int,Field:field,Figures:list=[])-> None:
         if Flag==1:
             OutputField=copy.deepcopy(Field)
             Flag=False
-        File.write(",".join(map(str,Figures))+'\n')
+        File.write(",".join(map(str,ConstFigures+Figures))+'\n')
         return
 
     # Тело рекурсии
@@ -67,13 +67,15 @@ def recursion(place:int,CurrentPos:int,Field:field,Figures:list=[])-> None:
                 Field=RemoveFigure(pos%side,pos//side,Field)
                
 def main():
-    # Объявление глоббальных переменных. 1) Сторонаа поля 2) Само шахматное поле 3) Поле для вывода в консоль 4) Флаг(нужен для более простого вывода поля в консоль)
+    # Объявление глоббальных переменных. 1) Сторонаа поля 2) Само шахматное поле 3) Поле для вывода в консоль 4) Флаг(нужен для более простого вывода поля в консоль) 5) Константные фигуры (Те, которые мы не можем двигать)
     global side
     global File
     global OutputField
     global Flag
+    global ConstFigures
     Flag=True
     OutputField=[]
+    ConstFigures=list()
     
     # Считывание данных из файла
     with open('input.txt','r') as f:
@@ -83,6 +85,7 @@ def main():
         Field=[[0]*side for _ in range(side)]
         for _ in range(OnField):
             x,y=map(int,f.readline().split())
+            ConstFigures.append((x,y))
             Field=PlaceFigure(x,y,Field)
     # Рекуррентная магия(подробнее в самой функции рекурсии), запись всех возможных расстановок в файл
     File=open("output.txt",'w')
