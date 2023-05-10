@@ -29,7 +29,10 @@ def main():
             if items:
                 self.storage.extend(items)
         def empty(self):
+            a=self.storage.copy()
             self.storage.clear()
+            return a
+
 
     class DictBox(Box):
         storage:Dict
@@ -46,13 +49,14 @@ def main():
                     self.storage.update({str(self.counter):item})
                     self.counter+=1
         def empty(self):
+            a=self.storage.copy()
             self.storage.clear()
             self.counter=1
+            return a
 
     def repack_boxes(*boxes):
         all_items=[]
         boxes=list(boxes)
-        #print('1111111111111111111111111',boxes)
         if isinstance(boxes[0], list):
             boxes=list(*boxes[0])
         for b in boxes:
@@ -61,14 +65,12 @@ def main():
             else:
                 all_items.extend(b.storage)
             b.empty()
-            #print('aaaaaaaa')
         
         for _ in range(len(boxes)):
             quantity=len(boxes)
             items_quant=len(all_items)
             b=boxes.pop(0)
             b.add(*[all_items.pop(0) for _ in range(items_quant//quantity)])
-            #print('bbbbbbbbbb')
     
     listboxlist=[ListBox() for _ in range(randint(1,15))]
     dictboxlist=[DictBox() for _ in range(randint(1,15))]
@@ -99,10 +101,11 @@ def main():
     lists=listboxlist+dictboxlist
     print(f'{len(lists)} boxes after sorting:')
     repack_boxes(*lists)
-    for _ in range(len(lists)):
-        current:Box
+    for i in range(len(lists)):
+        """current:Box
         current=lists.pop(0)
-        print(len(current.storage),end=' ')
+        print(len(current.storage),end=' ')"""
+        print(len(lists[i].empty()))
     
 
 
