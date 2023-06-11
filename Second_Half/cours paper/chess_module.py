@@ -8,14 +8,14 @@ class FigureBase(ABC):
     def move_set(self,x:int, y:int, borderline:int) -> Generator[tuple[int,int],None,None]:
         pass
     @abstractmethod
-    def __call__(self, x:int, y:int, borderline:int):
+    def __call__(self, x:int, y:int, borderline:int) -> Generator[tuple[int,int],None,None]:
         pass
 
 # Класс фигуры, необходимый для просчитывания атаки
 class Figure(FigureBase):
 
     # Объект класса фигуры можно вызвать как функцию
-    def __call__(self, x: int, y: int, borderline: int):
+    def __call__(self, x: int, y: int, borderline: int) -> Generator[tuple[int,int],None,None]:
         return self.move_set(x,y,borderline)
 
     # Метод класса, генерирующий все возможные клетки атаки при постановке фигуры на выбранную клетку
