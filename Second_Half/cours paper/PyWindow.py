@@ -14,7 +14,7 @@ class PygameWindow():
     calc_button_rect=calc_button.get_rect(topleft=(25,715))
     pf_rect=playfield.get_rect(topleft=(200,0))
 
-    def __init__(self, desk:Desk,l:int):
+    def __init__(self, desk:Desk,l:int) -> None:
         self.l = l
         self.launch(desk)
         self.desk = desk
@@ -75,7 +75,7 @@ class PygameWindow():
         self.pywindow.blit(self.playfield,(200,0))
 
     # Обновление окна, работа с действиями пользователя
-    def mainloop(self):
+    def mainloop(self) -> None:
         self.cooldown=0
         running = True
 
