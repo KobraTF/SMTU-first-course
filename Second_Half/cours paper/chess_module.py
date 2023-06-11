@@ -12,7 +12,7 @@ class FigureBase(ABC):
         pass
 
 # Класс фигуры, необходимый для просчитывания атаки
-class Figure():
+class Figure(FigureBase):
 
     # Объект класса фигуры можно вызвать как функцию
     def __call__(self, x: int, y: int, borderline: int):
