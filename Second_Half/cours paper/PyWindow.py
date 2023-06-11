@@ -100,23 +100,21 @@ class PygameWindow():
             self.fps.tick(45)
     
     # Проверяю, не пробует ли пользователь поставить фигуру, если он может и хочет, то фигура ставится на выбранную им клетку
-    def check_set(self):
+    def check_set(self) -> None:
         if p.mouse.get_pressed()[0] and self.calc_flag and not self.cooldown and self.pf_rect.collidepoint(p.mouse.get_pos()):
             if self.desk.set(*self.get_cords(p.mouse.get_pos(),'d'),-1):
                 
                 self.cooldown=10
-        pass
 
     # Проверяю, не пробует ли пользователь убрать фигуру, если он может и хочет, то фигура убирается с выбранной им клетки
-    def check_remove(self):
+    def check_remove(self) -> None:
         if p.mouse.get_pressed()[2] and self.calc_flag and not self.cooldown and self.pf_rect.collidepoint(p.mouse.get_pos()):
             if self.desk.remove(*self.get_cords(p.mouse.get_pos(),'d')):
                 
                 self.cooldown=10
-        pass
-    
+
     # Проверяю, не хочет ли пользователь проверить расстановку или вывести все возможные расстановки в файл, если хочет, удовлетворяю его желание
-    def check_calc(self):
+    def check_calc(self) -> None:
         if not self.calc_flag and p.mouse.get_pressed()[0] and not self.cooldown and self.calc_button_rect.collidepoint(p.mouse.get_pos()):
             self.desk.clear()
             with open('output.txt','w') as f:
@@ -145,7 +143,7 @@ class PygameWindow():
                 pass
     
     # Обновляю игровое поле
-    def update(self):
+    def update(self) -> None:
         b = (self.bb,self.wb)
         for pos in range(self.desk.n**2):
             if self.desk.storage[pos] == 0:
@@ -160,7 +158,7 @@ class PygameWindow():
         self.pywindow.blit(self.playfield,(200,0))
         
     # Метод, форматирующий координаты для работы с ними
-    def get_cords(self, data, mode:str):
+    def get_cords(self, data, mode:str) -> tuple[int,int]:
         cs = self.cs
         n = self.desk.n
         if mode == 'm':
