@@ -129,7 +129,7 @@ class PygameWindow():
                 self.calculator = Calculator(self.l,self.desk)                    
                 self.cooldown=40
                 self.calc_flag =False
-                print(str(self.desk).count('-2'),str(self.desk))
+                #print(str(self.desk).count('-2'),str(self.desk))
                 output_png = p.image.load('output-button.png')
                 self.calc_button.blit(output_png,(0,0))
                 self.sidepannel.blit(self.calc_button,(25,715))
